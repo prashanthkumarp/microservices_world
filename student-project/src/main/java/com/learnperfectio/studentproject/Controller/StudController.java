@@ -13,7 +13,7 @@ public class StudController {
     @Autowired
     private StudService ssobj;
 
-    @PostMapping("/setstud")
+    @PostMapping("/")
     public ResponseEntity<Void> setStud(@RequestBody Student stu){
         ssobj.setStud(stu);
         return new ResponseEntity<>(HttpStatus.OK);
