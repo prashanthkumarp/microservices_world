@@ -24,9 +24,28 @@ public class StudController {
         return new ResponseEntity<>(ssobj.getStudByNamepath(name), HttpStatus.OK);
     }
 
-//    @GetMapping("/byname")
-//    public ResponseEntity<List<Student>> getStudByName(@RequestBody String name){
-//        return new ResponseEntity<>(ssobj.getStudByName(name), HttpStatus.OK);
-//    }
+    @GetMapping("/name")
+    public ResponseEntity<List<Student>> getStudByName(@RequestBody Student stu) {
+        return new ResponseEntity<>(ssobj.getStudByNamepath(stu.getName()), HttpStatus.OK);
+    }
+
+
+    @GetMapping("/name1")
+    public ResponseEntity<List<Student>> getStudByName(@RequestBody StudentSearch stu) {
+        return new ResponseEntity<>(ssobj.getStudByNamepath(stu.getSname()), HttpStatus.OK);
+    }
+
+
+    @GetMapping("/")
+    public ResponseEntity<List<Student>> getAllStudents() {
+        return new ResponseEntity<>(ssobj.getAllStudents(), HttpStatus.OK);
+    }
+
+
+    @GetMapping("/id/{id}")
+    public ResponseEntity<Student> getStudById(@PathVariable String id) {
+        return new ResponseEntity<>(ssobj.getStudById(id), HttpStatus.OK);
+    }
+
 
 }

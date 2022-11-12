@@ -8,6 +8,10 @@ public interface StudService {
 
     List<Student> getStudByNamepath(String name);
 
+    public Student getStudById(String id);
+
+    public List<Student> getAllStudents();
+
 //    public List<Student> getStudByName(String name);
 
 }

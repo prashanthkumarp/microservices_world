@@ -21,8 +21,22 @@ public class StudServiceImpl implements StudService{
 
     @Override
     public List<Student> getStudByNamepath(String name) {
+        System.out.println(name+"sdsdadadkjashdk");
         stulist= srobj.findByName(name);
         return stulist;
+    }
+
+    @Override
+    public Student getStudById(String id) {
+        System.out.println("ddsffsdff");
+
+        return srobj.findById(Long.parseLong(id)).get();
+
+    }
+
+    @Override
+    public List<Student> getAllStudents() {
+        return srobj.findAll();
     }
 
 //    @Override

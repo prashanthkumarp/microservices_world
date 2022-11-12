@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://${DB_HOST:localhost}:3306/studentdb
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/student
     username: root
-    password: SAP@2001
+    password: Mouna@100
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
