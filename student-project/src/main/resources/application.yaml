@@ -3,12 +3,13 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://${DB_HOST:localhost}:3306/student
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/studentdb
     username: root
-    password: Mouna@100
+    password: SAP@2001
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
       ddl-auto: update
+    show-sql: true
   application:
     name: STUDENT-PROJECT

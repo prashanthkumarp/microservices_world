@@ -1,5 +1,7 @@
 package com.learnperfectio.studentproject.Controller;
+import com.learnperfectio.studentproject.Entity.Course;
 import com.learnperfectio.studentproject.Entity.Student;
+import com.learnperfectio.studentproject.Model.RequestCourse;
 import com.learnperfectio.studentproject.Service.StudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +21,18 @@ public class StudController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PostMapping("/setcourse")
+    public ResponseEntity<Void> setCourse(){
+        ssobj.setCourse();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/setcourse1")
+    public ResponseEntity<Void> setCourse1(Course course){
+        ssobj.setCourse1(course);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @GetMapping("/name/{name}")
     public ResponseEntity<List<Student>> getStudByNamepath(@PathVariable String name) {
         return new ResponseEntity<>(ssobj.getStudByNamepath(name), HttpStatus.OK);
@@ -29,7 +43,10 @@ public class StudController {
         return new ResponseEntity<>(ssobj.getStudByNamepath(stu.getName()), HttpStatus.OK);
     }
 
-
+    @GetMapping("/cname")
+    public ResponseEntity<List<Course>> getStudByCourseName(@RequestBody RequestCourse stu) {
+        return new ResponseEntity<>(ssobj.getStudByCourseName(stu.getRcname()), HttpStatus.OK);
+    }
     @GetMapping("/name1")
     public ResponseEntity<List<Student>> getStudByName(@RequestBody StudentSearch stu) {
         return new ResponseEntity<>(ssobj.getStudByNamepath(stu.getSname()), HttpStatus.OK);

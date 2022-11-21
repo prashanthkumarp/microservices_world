@@ -4,7 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.engine.internal.Cascade;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -14,10 +18,12 @@ import javax.persistence.*;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int cid;
+    private long cid;
     private String cname;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="s_id")
-    @JsonBackReference
-    private Student student;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(
+                    name="course_id",
+                    referencedColumnName = "cid"
+    )
+    private List<Student> studentList;
 }
