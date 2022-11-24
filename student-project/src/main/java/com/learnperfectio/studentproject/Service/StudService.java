@@ -21,4 +21,5 @@ public interface StudService {
 
     List<Course> getStudByCourseName(String rcname);
 
+    List<Course> getAllByCourseName();
 }

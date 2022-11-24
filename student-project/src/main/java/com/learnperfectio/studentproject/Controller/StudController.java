@@ -47,6 +47,12 @@ public class StudController {
     public ResponseEntity<List<Course>> getStudByCourseName(@RequestBody RequestCourse stu) {
         return new ResponseEntity<>(ssobj.getStudByCourseName(stu.getRcname()), HttpStatus.OK);
     }
+
+    @GetMapping("/getAll")
+    public ResponseEntity<List<Course>> getAllByCourseName() {
+        return new ResponseEntity<>(ssobj.getAllByCourseName(), HttpStatus.OK);
+    }
+
     @GetMapping("/name1")
     public ResponseEntity<List<Student>> getStudByName(@RequestBody StudentSearch stu) {
         return new ResponseEntity<>(ssobj.getStudByNamepath(stu.getSname()), HttpStatus.OK);

@@ -79,5 +79,11 @@ public class StudServiceImpl implements StudService{
         return courselist;
     }
 
+    @Override
+    public List<Course> getAllByCourseName() {
+        courselist=crobj.findAll();
+        return courselist;
+    }
+
 
 }
