@@ -1,12 +1,16 @@
 package com.learnperfectio.studentproject.Controller;
 import com.learnperfectio.studentproject.Entity.Course;
+import com.learnperfectio.studentproject.Entity.Holidays;
 import com.learnperfectio.studentproject.Entity.Student;
 import com.learnperfectio.studentproject.Model.RequestCourse;
 import com.learnperfectio.studentproject.Service.StudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -18,6 +22,11 @@ public class StudController {
     @PostMapping("/")
     public ResponseEntity<Void> setStud(@RequestBody Student stu){
         ssobj.setStud(stu);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @PostMapping("/holidayssave")
+    public ResponseEntity<Void> holidayssave(@RequestBody @Valid Holidays hr){
+        ssobj.holidayssave(hr);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -43,7 +52,7 @@ public class StudController {
         return new ResponseEntity<>(ssobj.getStudByNamepath(stu.getName()), HttpStatus.OK);
     }
 
-    @GetMapping("/cname")
+    @GetMapping(value="/cname", produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<List<Course>> getStudByCourseName(@RequestBody RequestCourse stu) {
         return new ResponseEntity<>(ssobj.getStudByCourseName(stu.getRcname()), HttpStatus.OK);
     }

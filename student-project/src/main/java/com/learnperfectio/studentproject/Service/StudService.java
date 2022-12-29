@@ -1,7 +1,7 @@
 package com.learnperfectio.studentproject.Service;
 import com.learnperfectio.studentproject.Entity.Course;
+import com.learnperfectio.studentproject.Entity.Holidays;
 import com.learnperfectio.studentproject.Entity.Student;
-import com.learnperfectio.studentproject.Model.RequestCourse;
 
 import java.util.List;
 
@@ -22,4 +22,6 @@ public interface StudService {
     List<Course> getStudByCourseName(String rcname);
 
     List<Course> getAllByCourseName();
+
+    void holidayssave(Holidays hr);
 }

@@ -1,8 +1,9 @@
 package com.learnperfectio.studentproject.Service;
 import com.learnperfectio.studentproject.Entity.Course;
+import com.learnperfectio.studentproject.Entity.Holidays;
 import com.learnperfectio.studentproject.Entity.Student;
-import com.learnperfectio.studentproject.Model.RequestCourse;
 import com.learnperfectio.studentproject.Repository.CourseRepository;
+import com.learnperfectio.studentproject.Repository.HolidayRepository;
 import com.learnperfectio.studentproject.Repository.StudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,11 +16,13 @@ public class StudServiceImpl implements StudService{
     private StudRepository srobj;
     @Autowired
     private CourseRepository crobj;
+    @Autowired
+    private HolidayRepository hrobj;
+
     List<Student> stulist = new ArrayList<>();
     List<Course> courselist = new ArrayList<>();
     @Override
     public void setStud(Student student) {
-
         srobj.save(student);
     }
 
@@ -83,6 +86,11 @@ public class StudServiceImpl implements StudService{
     public List<Course> getAllByCourseName() {
         courselist=crobj.findAll();
         return courselist;
+    }
+
+    @Override
+    public void holidayssave(Holidays holidays) {
+        hrobj.save(holidays);
     }
 
 
